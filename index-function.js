@@ -58,6 +58,25 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+const contributionGraph = document.getElementById("contributionGraph");
+
+// Get contribution data from localStorage
+const contributionData = JSON.parse(localStorage.getItem("adminData")) || [];
+
+// Create contribution graph cells based on data
+contributionData.forEach(day => {
+  const cell = document.createElement("div");
+  cell.className = `day ${day.result}`;
+  console.log(new Date(day.date).toLocaleDateString())
+  cell.setAttribute("data-date", new Date(day.date).toLocaleDateString());
+  
+  // Set cell content based on the result (win or lost)
+  cell.textContent = day.result === "win" ? "🏆" : "❌";
+  
+  contributionGraph.appendChild(cell);
+});
+
+
 
 typeText();
 

@@ -2,16 +2,17 @@ document.getElementById("createObject").addEventListener("click", function(event
     event.preventDefault(); // Prevent form submission (if the button is inside a form)
   
     const date = document.getElementById("date").value;
-    const namaz = document.querySelector('input[name="namaz"]').checked;
-    const quran = document.querySelector('input[name="quran"]').checked;
-    const noSmoking = document.querySelector('input[name="noSmoking"]').checked;
-    const study = document.querySelector('input[name="study"]').checked;
-    const contactFamily = document.querySelector('input[name="contactFamily"]').checked;
-    const jobApply = document.querySelector('input[name="jobApply"]').checked;
+    const namaz = document.querySelector('input[name="namaz"]').checked ? 5 : 0;
+    const quran = document.querySelector('input[name="quran"]').checked ? 5 : 0;
+    const noSmoking = document.querySelector('input[name="noSmoking"]').checked ? 5 : 0;
+    const study = document.querySelector('input[name="study"]').checked ? 5 : 0;
+    const contactFamily = document.querySelector('input[name="contactFamily"]').checked ? 5 : 0;
+    const jobApply = document.querySelector('input[name="jobApply"]').checked ? 5 : 0;
     const importantWork = document.getElementById("importantWork").value;
     const giftChoice = document.getElementById("giftChoice").value;
+    console.log(quran);
   
-    const score = (namaz + quran + noSmoking + study + contactFamily + jobApply) * 5;
+    const score = ((namaz + quran + noSmoking + study + contactFamily + jobApply) * 100)/30;
     const result = score === 100 ? "win" : "lose";
   
     const newDay= {
@@ -33,10 +34,7 @@ document.getElementById("createObject").addEventListener("click", function(event
 
   // Save the updated data to localStorage
   localStorage.setItem("adminData", JSON.stringify(savedData));
-
-  // Optionally, provide user feedback that data is saved
-  alert("Data saved to local storage!");
-  
+  //window.location.href = "./index.html";
     console.log(newDay); // You can replace this with your desired action, like adding to an array or sending to a server.
   });
   
