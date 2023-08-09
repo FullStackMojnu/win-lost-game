@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./add-style.css">
+    <title>আপনার দিন যোগ করুন</title> 
+</head>
+
+<body>
+    <div class="container">
+        <p class="title">আপনার দিন যোগ করুন</p> 
+        <div class="form">
+            <div class="date-picker-container">
+              <input type="text" id="date" class="date-input" name="date" placeholder="তারিখ লিখুন">
+            </div>
+            <br/> 
+            <div class="checkboxes">
+                <label><input type="checkbox" name="namaz">৫ ওয়াক্ত নামাজ পড়েছেন?</label>
+                <label><input type="checkbox" name="quran">সকালে কুরআন পড়েছেন?</label> 
+                <label><input type="checkbox" name="noSmoking">সিগারেট খান নি?</label>
+                <label><input type="checkbox" name="study">ঘন্টা পড়াশোনা করেছেন?</label> 
+                <label><input type="checkbox" name="contactFamily">পরিবারের সাথে কথা বলেছেন?</label>
+                <label><input type="checkbox" name="jobApply">চাকরির প্রস্তুতি/আবেদন করেছেন?</label>
+            </div>
+            <br/>
+            <div>
+              <label for="giftChoice">নিজেকে উপহার দিন:</label> 
+              <div class="custom-dropdown">
+                <select id="giftChoice" name="giftChoice">
+                  <option value="No Gift">No Gift</option>
+                  <option value="Singra">Singra</option>
+                  <option value="Moghlai">Moghlai</option>
+                  <option value="Puri">Puri</option>
+                  <option value="Porwata">Porwata</option>
+                </select>
+                <div class="dropdown-arrow">&#9660;</div>
+              </div>
+            </div>
+            <br/>
+            <div class="editor-container">
+              <label for="importantWork" class="editor-label">Important Work:</label>
+              <div class="editor">
+                <div class="editor-toolbar">
+                  <!-- Add toolbar buttons here if desired -->
+                </div>
+                <textarea id="importantWork" name="importantWork" class="editor-textarea" rows="2"></textarea>
+              </div>
+            </div>
+            
+
+
+            <button id="createObject">Create a new day!</button>
+        </div>
+    </div>
+
+    <script src="./add-function.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,181 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .container {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 400px;
+  }
+  
+  .title {
+    text-align: center;
+  }
+  
+  .form {
+    margin-top: 20px;
+  }
+  
+  .section-title {
+    margin-top: 15px;
+    font-size: 1.2rem;
+  }
+  
+  .checkboxes {
+    margin-top: 8px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  input[type="checkbox"] {
+    margin-right: 5px;
+  }
+  
+  input[type="date"],
+  input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  /* ... other CSS styles ... */
+
+textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical; /* Allow vertical resizing of the textarea */
+  }
+  
+  /* ... other CSS styles ... */
+  
+  
+  button {
+    margin-top: 15px;
+    padding: 8px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  /* ... your existing styles ... */
+
+/* Style for the container */
+.custom-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Style for the dropdown arrow */
+.dropdown-arrow {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+/* Style for the select element */
+#giftChoice {
+  appearance: none; /* Remove default styles on some browsers */
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 200px;
+}
+
+/* Hover effect for the select element */
+#giftChoice:hover {
+  border-color: #aaa;
+}
+
+/* Focus effect for the select element */
+#giftChoice:focus {
+  outline: none;
+  border-color: #007bff; /* Example focus color */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Example focus shadow */
+}
+
+/* date picker */
+/* Style for the container */
+.date-picker-container {
+  display: inline-block;
+}
+
+/* Style for the date input */
+.date-input {
+  width: 100%; /* Set the input to take full width */
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* text area editor */
+/* Container for the text editor */
+.editor-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Label for the text editor */
+.editor-label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+/* Main editor container */
+.editor {
+  position: relative;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+/* Toolbar */
+.editor-toolbar {
+  background-color: #f5f5f5;
+  border-bottom: 1px solid #ccc;
+  padding: 5px;
+}
+
+/* Textarea */
+.editor-textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  resize: vertical;
+}
+
+/* Textarea focus */
+.editor-textarea:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+
