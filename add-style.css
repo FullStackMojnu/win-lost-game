@@ -217,6 +217,58 @@ textarea {
   outline: none;
   box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align items to the top */
+    height: 100vh; /* Hide scroll bars */
+  }
+
+  .container {
+    width: 100%;
+    max-width: 400px; /* Adjust the maximum width for better fit */
+    margin-top: 0; /* Remove top margin for better alignment */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    background-color: #fff;
+    box-sizing: border-box; /* Ensure padding and border don't affect width */
+  }
+
+  .title {
+    text-align: center;
+    margin-bottom: 15px; /* Add some margin for better spacing */
+    font-size: 24px; /* Adjust font size for better readability */
+  }
+
+  .form {
+    margin-top: 15px; /* Adjust top margin for better spacing */
+  }
+
+  .section-title {
+    margin-top: 10px; /* Adjust top margin for better spacing */
+    font-size: 1rem; /* Adjust font size for better readability */
+  }
+
+  /* ... other styles ... */
+
+  .date-input,
+  .editor-textarea {
+    width: 100%; /* Make both inputs full width */
+    padding: 8px;
+    font-size: 14px; /* Adjust font size for better readability */
+  }
+
+  /* ... other styles ... */
+
+  .btn {
+    padding: 8px 15px; /* Adjust padding for better fit */
+    font-size: 14px; /* Adjust font size for better readability */
+  }
+}
+
 
 
 
