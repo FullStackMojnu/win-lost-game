@@ -119,13 +119,10 @@ textarea {
 
 /* date picker */
 /* Style for the container */
-.date-picker-container {
-  display: inline-block;
-}
 
 /* Style for the date input */
 .date-input {
-  width: 100%; /* Set the input to take full width */
+  width: 90%; /* Set the input to take full width */
   padding: 8px;
   font-size: 16px;
   border: 1px solid #ccc;

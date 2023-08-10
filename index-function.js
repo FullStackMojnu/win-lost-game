@@ -58,25 +58,53 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-const contributionGraph = document.getElementById("contributionGraph");
+const contributionMonths = document.getElementById("contributionMonths");
 
 // Get contribution data from localStorage
 const contributionData = JSON.parse(localStorage.getItem("adminData")) || [];
 
-// Create contribution graph cells based on data
+// Group data by year and month
+const groupedData = {};
 contributionData.forEach(day => {
-  const cell = document.createElement("div");
-  cell.className = `day ${day.result}`;
-  console.log(new Date(day.date).toLocaleDateString())
-  cell.setAttribute("data-date", new Date(day.date).toLocaleDateString());
+  const date = new Date(day.date);
+  const year = date.getFullYear();
+  const month = date.getMonth();
   
-  // Set cell content based on the result (win or lost)
-  cell.textContent = day.result === "win" ? "🏆" : "❌";
+  if (!groupedData[year]) {
+    groupedData[year] = {};
+  }
   
-  contributionGraph.appendChild(cell);
+  if (!groupedData[year][month]) {
+    groupedData[year][month] = [];
+  }
+  
+  groupedData[year][month].push(day);
 });
 
+// Create month containers with contribution data
+for (const year in groupedData) {
+  for (const month in groupedData[year]) {
+    const monthContainer = document.createElement("div");
+    monthContainer.className = "month-container";
+    
+    const monthName = new Date(year, month, 1).toLocaleString('default', { month: 'long' });
+    const yearName = year;
 
+    // Create the month name element and append it first
+    const monthNameElement = document.createElement("div");
+    monthNameElement.className = "month-name";
+    monthNameElement.textContent = `${monthName} ${yearName}`;
+    monthContainer.appendChild(monthNameElement);
 
-typeText();
+    // Append individual day cells
+    groupedData[year][month].forEach(day => {
+      const cell = document.createElement("div");
+      cell.className = `day ${day.result}`;
+      cell.setAttribute("data-date", day.date);
+      cell.textContent = day.result === "win" ? "🏆" : "❌";
+      monthContainer.appendChild(cell);
+    });
 
+    contributionMonths.appendChild(monthContainer);
+  }
+}

@@ -92,14 +92,52 @@ th {
 
 /* ... your existing styles ... */
 
-.contribution-graph {
-    display: grid;
-    grid-template-columns: repeat(30, 20px); /* 30 columns in a row */
-    gap: 1.5px; /* Gap between cells */
-    font-size: 0; /* Remove white space between cells */
+/* ... your existing styles ... */
+
+/* ... your existing styles ... */
+
+/* ... your existing styles ... */
+
+/* ... your existing styles ... */
+
+/* ... your existing styles ... */
+
+/* ... your existing styles ... */
+
+.contribution-months {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Gap between month containers */
+    max-width: 1200px; /* Limit the width of the contribution graph */
     margin: 0 auto; /* Center the contribution graph */
-    max-width: 620px; /* Limit the width of the contribution graph */
   }
+  
+  .month-container {
+    position: relative; /* Add position relative for the container */
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* 7 columns for each day of the week */
+    gap: 0.5px; /* Gap between cells */
+    font-size: 16px; /* Remove white space between cells */
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    width: calc(33.33% - 10px); /* Set width for each month container */
+  }
+  
+/* ... your existing styles ... */
+
+.month-name {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 20px; /* Add a margin to the bottom of the month name */
+    background-color: white; /* Add background color for contrast */
+    padding: 4px 8px; /* Add a border at the bottom of the month name */
+    z-index: -1; /* Place the month name above the cells */
+  }
+  
   
   .day {
     width: 20px; /* Width of cells */
@@ -111,6 +149,9 @@ th {
     align-items: center;
     justify-content: center;
     font-size: 16px; /* Set font size for emojis */
+    margin-top: 35px; /* Add margin to the top of day cells */
+    margin-bottom: 2px;
+    margin-left: 8px;
   }
   
   .win {
@@ -137,7 +178,6 @@ th {
   
   
   
-
 footer {
     margin-top:40px;
     text-align: center;
