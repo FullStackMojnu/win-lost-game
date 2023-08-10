@@ -127,7 +127,7 @@ body {
 .month-container {
     position: relative;
     display: grid;
-    grid-template-columns: repeat(15, 1fr);
+    grid-template-columns: repeat(11, 1fr);
     gap: 0.2px;
     font-size: 16px;
     border: 1px solid #ccc;
@@ -153,20 +153,31 @@ body {
 }
 
 .day {
-    width: 20px;
-    height: 20px;
-    border: 1px solid #ccc;
-    cursor: pointer;
     position: relative;
-    display: flex;
+    width: 30px;
+    height: 30px;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-size: 16px;
-    margin-top: 0px;
-    margin-bottom: 2px;
-    margin-left: 0;
-    background-color: #fff;
+    font-size: 18px;
+    margin: 2px;
+    cursor: pointer; /* Add this line to set cursor to pointer */
 }
+
+.day:hover::before {
+    content: attr(data-date);
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
 
 footer {
     text-align: center;

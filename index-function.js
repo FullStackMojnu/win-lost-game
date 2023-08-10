@@ -59,7 +59,7 @@ if (contributionData.length === 0) {
         const cell = document.createElement("div");
         cell.className = `day ${day.result}`;
         cell.setAttribute("data-date", day.date);
-        cell.textContent = day.result === "win" ? "🏆" : "🥚";
+        cell.textContent = day.result === "win" ? "🏆" : "❌";
         monthContainer.appendChild(cell);
       });
 
