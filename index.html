@@ -7,33 +7,34 @@
     <title>Game: Win / Lost</title>
     <link rel="stylesheet" href="./index-style.css">
 </head>
+
 <body>
     <div class="navbar">
-      <a href="./add-your-day.html" class="nav-link">আপনার দিনটি যোগ করুন</a>  
+        <a href="./add-your-day.html" class="nav-link">আপনার দিনটি যোগ করুন</a>
+        <a href="./table-view.html" class="nav-link">টেবিলে দেখুন</a>
+        <a href="./damikotha.html" class="nav-link">দামী কথা</a>
     </div>
     <br/>
-    <br/>
-    <div class="contribution-months" id="contributionMonths"></div>
-    <div class="typewriter">
-        <p id="typedText"></p>
-    </div>
-      
-      
-      
     <p class="game-title">Game: Win / Lost</p>
-    <table class="table-center" id="dataTable">
-      <tr>
-        <th>Date</th>
-        <th>Win/Lose</th>
-        <th>Imp. Work</th>
-        <th>Score</th>
-        <th>Gift</th>
-      </tr>
-    </table>
+    <div class="stats-container">
+        <div class="stat">
+            <span class="stat-label">আপনি মোট জিতেছেন</span>
+            <span id="totalWinningDays" class="stat-value">0</span> দিন 
+        </div>
+        <div class="stat">
+            <span class="stat-label">আপনি মোট হেরেছেন</span>
+            <span id="totalLostDays" class="stat-value">0</span> দিন 
+        </div>
+        <div class="stat">
+            <span class="stat-label">আপনার জেতার হার</span>
+            <span id="winningPercentage" class="stat-value">0%</span>
+        </div>
+    </div>
+    <div class="contribution-months" id="contributionMonths"></div>
     <footer>
-      <p>Developed by <a href="https://your-mojnu-link.com">Mojnu</a> and <a href="https://your-chatgpt-link.com">chatgpt</a></p>
+        <p>Developed by <a href="https://your-mojnu-link.com">Mojnu</a> and <a href="https://your-chatgpt-link.com">chatgpt</a></p>
     </footer>
     <script src="./index-function.js"></script>
-  </body>
+</body>
 
 </html>
