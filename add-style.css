@@ -1,27 +1,70 @@
-body {
+
+  body {
     font-family: Arial, sans-serif;
     background-color: #f7f7f7;
     margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-  }
+    min-height: 100vh; /* Hide the scroll bar */
+}
+ /* Ensure the body takes at least 100% viewport height */
+
+.container {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 400px;
+  max-width: 90%; /* Adjust maximum width for smaller screens */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center the content horizontally */
+  margin-top: -20px;
+}
+
+/* ... existing styles ... */
+
   
-  .container {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    width: 400px;
-  }
-  
-  .title {
-    text-align: center;
-  }
+  /* ... unchanged ... */
+
+/* Styling for the title */
+.title {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 10px;
+  color: #007bff;
+}
+
+/* Improved button styling */
+button {
+  margin-top: 20px;
+  padding: 12px 20px; /* More padding for a comfortable touch area */
+  font-size: 18px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+/* Hover and focus effects for the button */
+button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05); /* Slightly zoom in on hover */
+}
+
+button:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* ... unchanged ... */
+
   
   .form {
-    margin-top: 20px;
+    margin-top: 10px;
   }
   
   .section-title {
@@ -174,5 +217,6 @@ textarea {
   outline: none;
   box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
+
 
 

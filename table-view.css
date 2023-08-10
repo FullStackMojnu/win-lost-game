@@ -1,5 +1,11 @@
+/* Reset and common styles */
+/* ... (unchanged) */
+
+/* Table Styles */
 table {
     border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 td,
@@ -7,15 +13,6 @@ th {
     border: 1px solid black;
     padding: 10px 20px;
 }
-
-
-.table-center {
-    margin-left: auto;
-    margin-right: auto;
-}
-/* Add this CSS code to your table-view.css stylesheet */
-
-/* ... your existing styles ... */
 
 /* Home Button */
 .home-button {
@@ -37,18 +34,19 @@ th {
     background-color: #0056b3;
 }
 
-/* ... your existing styles ... */
-
 /* Media query for mobile devices */
 @media (max-width: 768px) {
-    /* Home Button Styles for Mobile */
+    /* Table Styles for Mobile */
     table {
         font-size: 12px;
-      }
-      #dataTable th:nth-child(3),
-      #dataTable td:nth-child(3) {
+    }
+
+    #dataTable th:nth-child(3),
+    #dataTable td:nth-child(3) {
         display: none;
-      }
+    }
+
+    /* Home Button Styles for Mobile */
     .home-button {
         text-align: center;
         margin-top: 20px;
@@ -69,3 +67,4 @@ th {
     }
 }
 
+/* ... your existing styles ... */
