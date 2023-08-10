@@ -1,208 +1,103 @@
+/* Reset and common styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-.game-title {
-    width: 122px;
-    margin: 0 auto;
-    margin-top: 40px;
-    margin-bottom: 50px;
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Add this CSS to your existing stylesheet */
+
+/* No Data Container */
+/* Center the No Data Container */
+.no-data-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+    z-index: 9999; /* Ensure it's on top of other content */
+  }
+  
+  /* No Data Message */
+  .no-data-message {
+    text-align: center;
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+  }
+  
+  .no-data-message p {
+    margin: 10px 0;
+  }
+  
+  .no-data-message a {
+    color: #007bff;
+    text-decoration: none;
     font-weight: bold;
-    border-bottom: 1px solid black;
-}
+  }
+  
+  .no-data-message a:hover {
+    text-decoration: underline;
+  }
+  
 
-.typewriter h3{
-    font-size: default;
-}
-
-/* navbar link */
-
-/* Add your other styles here */
-
-/* Navbar styles */
+/* Navbar */
 .navbar {
     display: flex;
-    justify-content: flex-end;
-    padding: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Navbar link styles */
-  .nav-link {
-    text-decoration: underline;
-    padding: 5px 10px;
-    border-radius: 4px;
-    color: #000;
-  }
-  
-
-table {
-    border-collapse: collapse;
-}
-
-td,
-th {
-    border: 1px solid black;
-    padding: 10px 20px;
-}
-
-
-.table-center {
-    margin-left: auto;
-    margin-right: auto;
-}
-.typewriter {
-    text-align: center;
-    padding: 100px 0;
-    height: 40px; /* Set a fixed height for the typewriter container */
-    overflow: hidden; /* Hide overflowing content */
-  }
-  
-  #typedText {
-    font-size: 24px;
-    font-family: monospace;
-    display: inline-block; /* Preserve inline-block layout for text */
-    vertical-align: bottom; /* Align text to the bottom of the container */
-  }
-/* ... your existing styles ... */
-
-/* Add your desired styling for the button here */
-.btn {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 4px;
-  }
-  
-  .btn:hover {
-    background-color: #0056b3;
-  }
-
-  /* ... your existing styles ... */
-
-/* ... your existing styles ... */
-
-/* ... your existing styles ... */
-
-/* ... your existing styles ... */
-
-/* ... your existing styles ... */
-
-/* ... your existing styles ... */
-
-/* ... your existing styles ... */
-
-/* ... your existing styles ... */
-
-/* ... your existing styles ... */
-
-/* ... your existing styles ... */
-
-/* ... your existing styles ... */
-
-.contribution-months {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px; /* Gap between month containers */
-    max-width: 1200px; /* Limit the width of the contribution graph */
-    margin: 0 auto; /* Center the contribution graph */
-  }
-  
-  .month-container {
-    position: relative; /* Add position relative for the container */
-    display: grid;
-    grid-template-columns: repeat(15, 1fr); /* 7 columns for each day of the week */
-    gap: 0.2px; /* Gap between cells */
-    font-size: 16px; /* Remove white space between cells */
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-    width: calc(33.33% - 10px); /* Set width for each month container */
-    margin-top: 20px;
-  }
-  
-/* ... your existing styles ... */
-
-.month-name {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-    font-weight: bold;
-    margin-bottom: 20px; /* Add a margin to the bottom of the month name */
-    background-color: white; /* Add background color for contrast */
-    padding: 4px 8px; /* Add a border at the bottom of the month name */
-    z-index: -1; /* Place the month name above the cells */
-  }
-  
-  
-  .day {
-    width: 20px; /* Width of cells */
-    height: 20px; /* Height of cells */
-    border: 1px solid #ccc;
-    cursor: pointer;
-    position: relative;
-    display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-    font-size: 16px; /* Set font size for emojis */
-    margin-top: 35px; /* Add margin to the top of day cells */
-    margin-bottom: 2px;
-    margin-left: 0px;
-  }
-  
-  .win {
-    background-color: lightgreen;
-  }
-  
-  .lost {
-    background-color: lightcoral;
-  }
-  
-  /* Show date on hover */
-  .day:hover::before {
-    content: attr(data-date);
-    position: absolute;
-    top: -25px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: rgba(0, 0, 0, 0.8);
-    color: white;
-    padding: 4px 8px;
-    border-radius: 4px;
-    font-size: 12px;
-  }
-  
-  
-  
-footer {
-    margin-top:40px;
-    text-align: center;
-    padding: 20px 0;
-    border-top: 1px solid #ddd;
-  }
-  
-  footer p {
-    margin: 0;
-  }
-  
-  footer a {
+    padding: 10px 20px;
+}
+
+.nav-brand {
+    font-size: 24px;
     color: #333;
-    text-decoration: underline;
-  }
-  
-/* stats */
+    text-decoration: none;
+}
 
-/* ... your existing styles ... */
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
 
+.nav-link {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #007bff;
+}
+
+/* Page Header */
+.game-title {
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+/* Stats Container */
 .stats-container {
     display: flex;
     justify-content: space-around;
-    margin-top: 20px;
+    align-items: center;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
 }
 
 .stat {
@@ -210,7 +105,6 @@ footer {
 }
 
 .stat-label {
-    font-weight: bold;
     color: #333;
     margin-bottom: 5px;
 }
@@ -220,96 +114,132 @@ footer {
     color: #007bff;
 }
 
-/* ... your existing styles ... */
+/* Contribution Graph */
+.contribution-months {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
-  
-/* Default styles for both h3 and p tags */
+/* Common styles for both desktop and mobile */
+.month-container {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+    gap: 0.2px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    width: calc(33.33% - 10px);
+    margin-top: 20px;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
 
-/* Media query for mobile devices */
+.month-name {
+    text-align: center;
+    padding: 4px 8px;
+    border-radius: 4px;
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -1;
+}
+
+.day {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    margin-top: 0px;
+    margin-bottom: 2px;
+    margin-left: 0;
+    background-color: #fff;
+}
+
+footer {
+    text-align: center;
+    font-size: 14px;
+    color: #333;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 5px;
+}
+
+/* Media Query for Mobile Devices */
 @media (max-width: 768px) {
-    p {
-        font-size: 14px;
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
     }
+
+    .nav-links {
+        margin-top: 10px;
+    }
+
     .game-title {
         font-size: 24px;
-        margin-top: 20px;
-        margin-bottom: 30px;
-      }
-    
-      /* Adjust font size for typewriter effect */
-      .typewriter h3 {
-        font-size: 18px;
-      }
-    
-      /* ... your other styles ... */
-    
-      /* Navbar styles */
-      .navbar {
-        justify-content: center; /* Center the links */
-        padding: 5px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      }
-    
-      /* Navbar link styles */
-      .nav-link {
-        padding: 2px 5px;
-        font-size: 12px;
-      }
-    
-      /* ... your other styles ... */
-    
-      /* Table styles */
-      table {
-        font-size: 12px;
-      }
-    
-      /* ... your other styles ... */
-    
-      /* Contribution graph styles */
-      .contribution-months {
-        max-width: 100%; /* Full width for mobile */
-        margin: 0; /* Remove margin for mobile */
-      }
-    
-      .month-container {
-        width: 96%; /* Full width for mobile */
-        margin: 0 auto;
-        margin-bottom: 20px; /* Add space between month containers */
-      }
-    
-      .month-name {
-        margin-bottom: 10px; /* Reduce margin for mobile */
-      }
-    
-      .day {
-        width: 16px; /* Smaller width for mobile */
-        height: 16px; /* Smaller height for mobile */
-        font-size: 12px; /* Smaller font size for mobile */
-        margin-top: 30px; /* Adjust margin for mobile */
-        margin-bottom: 2px;
-        margin-left: 8px;
-      }
-    
-      /* ... your other styles ... */
-    
-      /* Footer styles */
-      footer {
-        margin-top: 20px; /* Adjust margin for mobile */
-        padding: 10px 0;
-      }
-    
-      footer p {
-        font-size: 12px; /* Smaller font size for mobile */
-      }
-    
-      footer a {
-        font-size: 12px; /* Smaller font size for mobile */
-      }
-  #dataTable th:nth-child(3),
-  #dataTable td:nth-child(3) {
-    display: none;
-  }
-}
-/* ... your existing styles ... */
+        margin-top: 15px;
+        margin-bottom: 20px;
+    }
 
-/* Media query for mobile devices */
+    .stats-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 15px;
+    }
+
+    .stat-label {
+        font-size: 14px;
+        margin-bottom: 3px;
+    }
+
+    .stat-value {
+        font-size: 18px;
+    }
+
+    .contribution-months {
+        max-width: 100%;
+        margin: 0;
+    }
+
+    .month-container {
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 20px;
+    }
+
+    .month-name {
+        top: -25px;
+        font-size: 14px;
+        padding: 2px 6px;
+    }
+
+    .day {
+        width: 18px;
+        height: 18px;
+        font-size: 14px;
+        margin-top: 0px;
+    }
+
+    footer {
+        margin-top: 15px;
+        padding: 5px 0;
+    }
+
+    footer p,
+    footer a {
+        font-size: 12px;
+    }
+}

@@ -12,8 +12,8 @@ document.getElementById("createObject").addEventListener("click", function(event
     const giftChoice = document.getElementById("giftChoice").value;
     console.log(quran);
   
-    const score = ((namaz + quran + noSmoking + study + contactFamily + jobApply) * 100)/30;
-    const result = score === 100 ? "win" : "lose";
+    const score = (((namaz + quran + noSmoking + study + contactFamily + jobApply) * 100)/30).toFixed(2);
+    const result = score > 99 ? "win" : "lose";
   
     const newDay= {
       date: date,
@@ -34,7 +34,7 @@ document.getElementById("createObject").addEventListener("click", function(event
 
   // Save the updated data to localStorage
   localStorage.setItem("adminData", JSON.stringify(savedData));
-  //window.location.href = "./index.html";
+  window.location.href = "./index.html";
     console.log(newDay); // You can replace this with your desired action, like adding to an array or sending to a server.
   });
   
