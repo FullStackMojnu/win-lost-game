@@ -9,32 +9,29 @@ contributionData.forEach(day => {
   const date = new Date(day.date);
   const year = date.getFullYear();
   const month = date.getMonth();
-  
+
   if (!groupedData[year]) {
     groupedData[year] = {};
   }
-  
+
   if (!groupedData[year][month]) {
     groupedData[year][month] = [];
   }
-  
+
   groupedData[year][month].push(day);
 });
 
 // If no contribution data available, display the user message
+
+const messageContainer = document.getElementById("messageContainer");
+const closeButton = document.getElementById("closeButton");
+
 if (contributionData.length === 0) {
-  const noDataContainer = document.createElement("div");
-  noDataContainer.className = "no-data-container";
-  
-  const noDataMessage = document.createElement("div");
-  noDataMessage.className = "no-data-message";
-  noDataMessage.innerHTML = `
-    <p>আপনি কোনো দিনের হিসাব জমা দেন নি। প্রথমে আপনি <a href="./add-your-day.html">আপনার দিন যোগ করুন</a>।</p>
-    <p>আশা করি, আমি আপনাকে জিততে সাহায্য করব।</p>
-  `;
-  
-  noDataContainer.appendChild(noDataMessage);
-  contributionMonths.appendChild(noDataContainer);
+  messageContainer.style.display = "block";
+
+  closeButton.addEventListener("click", () => {
+    messageContainer.style.display = "none";
+  });
 } else {
   // Loop through contribution data and create month containers
   // ... (rest of your existing code)
@@ -58,8 +55,10 @@ if (contributionData.length === 0) {
       groupedData[year][month].forEach(day => {
         const cell = document.createElement("div");
         cell.className = `day ${day.result}`;
-        cell.setAttribute("data-date", day.date);
-        cell.textContent = day.result === "win" ? "🏆" : "❌";
+        const dayNumber = new Date(day.date).getDate();
+        cell.setAttribute("data-date", `${dayNumber}`);
+        cell.setAttribute("data-score", `${day.score}`);
+        cell.textContent = day.result === "win" ? "🏆" : "🥚";
         monthContainer.appendChild(cell);
       });
 
@@ -67,23 +66,26 @@ if (contributionData.length === 0) {
     }
   }
   // show total winning day and totla lost day
-// Calculate total winning and lost days
-let totalWinningDays = 0;
-let totalLostDays = 0;
+  // Calculate total winning and lost days
+  let totalWinningDays = 0;
+  let totalLostDays = 0;
 
-contributionData.forEach(day => {
-  if (day.result === "win") {
-    totalWinningDays++;
-  } else if (day.result === "lose") {
-    totalLostDays++;
-  }
-});
-const totalDays = totalWinningDays + totalLostDays;
-const winningPercentage = (totalWinningDays / totalDays) * 100;
-// Get the last day of the month
+  contributionData.forEach(day => {
+    if (day.result === "win") {
+      totalWinningDays++;
+    } else if (day.result === "lose") {
+      totalLostDays++;
+    }
+  });
+  const totalDays = totalWinningDays + totalLostDays;
+  const winningPercentage = (totalWinningDays / totalDays) * 100;
+  // Get the last day of the month
 
-// Update the HTML elements with the calculated values
-document.getElementById("totalWinningDays").textContent = totalWinningDays;
-document.getElementById("totalLostDays").textContent = totalLostDays;
-document.getElementById("winningPercentage").textContent = winningPercentage.toFixed(2) + "%";
+  // Update the HTML elements with the calculated values
+  document.getElementById("totalWinningDays").textContent = totalWinningDays;
+  document.getElementById("totalLostDays").textContent = totalLostDays;
+  document.getElementById("winningPercentage").textContent = winningPercentage.toFixed(2) + "%";
 }
+
+// Clock
+
