@@ -1,58 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Game: Win / Lost</title>
-    <link rel="stylesheet" href="./index-style.css" />
-  </head>
 
-  <body>
-    <header class="header">
-      <nav class="navbar">
-        <a href="#" class="nav-logo">Game: Win / Lost</a>
-        <div class="nav-links">
-          <a href="./add-your-day.html" class="nav-link">Add Your Day</a>
-          <a href="./table-view.html" class="nav-link">View Table</a>
-          <a href="./damikotha.html" class="nav-link">Damī Kathā</a>
-        </div>
-      </nav>
-      <h1 class="game-title">Track Your Wins and Losses</h1>
-    </header>
-    <div class="message-container" id="messageContainer">
-      <div class="message-box">
-        <p>
-          You haven't added any day's data yet. Please start by adding your
-          days.
-        </p>
-        <button class="close-button" id="closeButton">Close</button>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Game: Win / Lost</title>
+  <link rel="stylesheet" href="./index-style.css" />
+</head>
+
+<body>
+  <header class="header">
+    <nav class="navbar">
+      <a href="#" class="nav-logo">Game: Win / Lost</a>
+      <div class="nav-links">
+        <a href="./add-your-day.html" class="nav-link">Add Your Day</a>
+        <a href="./table-view.html" class="nav-link">View Table</a>
+        <a href="./damikotha.html" class="nav-link">Damī Kathā</a>
       </div>
+    </nav>
+    <h1 class="game-title">Track Your Wins and Losses</h1>
+  </header>
+  <div class="news-ticker">
+    <div class="ticker-content">
+      <span class="ticker-text">
+        You always forget your promise and live purpose.
+      </span>
+      <span class="ticker-text">
+        No sacrifice, No gain.
+      </span>
+      <span id="dynamic-age" class="ticker-text">
+        <!-- Age will be displayed here -->
+      </span>
     </div>
-    <main class="main-content">
-      <section class="stats-container">
-        <div class="stat">
-          <span class="stat-label">Total Wins</span>
-          <span id="totalWinningDays" class="stat-value">0</span> Days
-        </div>
-        <div class="stat">
-          <span class="stat-label">Total Losses</span>
-          <span id="totalLostDays" class="stat-value">0</span> Days
-        </div>
-        <div class="stat">
-          <span class="stat-label">Winning Percentage</span>
-          <span id="winningPercentage" class="stat-value">0%</span>
-        </div>
-      </section>
+  </div>
+  <div class="message-container" id="messageContainer">
+    <div class="message-box">
+      <p>
+        You haven't added any day's data yet. Please start by adding your
+        days.
+      </p>
+      <button class="close-button" id="closeButton">Close</button>
+    </div>
+  </div>
+  <main class="main-content">
+    <section class="stats-container">
+      <div class="stat">
+        <span class="stat-label">Total Wins</span>
+        <span id="totalWinningDays" class="stat-value">0</span> Days
+      </div>
+      <div class="stat">
+        <span class="stat-label">Total Losses</span>
+        <span id="totalLostDays" class="stat-value">0</span> Days
+      </div>
+      <div class="stat">
+        <span class="stat-label">Winning Percentage</span>
+        <span id="winningPercentage" class="stat-value">0%</span>
+      </div>
+    </section>
 
-      <section class="contribution-months" id="contributionMonths">
-        <!-- Populated by JavaScript -->
-      </section>
-    </main>
+    <section class="contribution-months" id="contributionMonths">
+      <!-- Populated by JavaScript -->
+    </section>
+  </main>
 
-    <footer class="footer">
-      <p>&copy; 2023 Game: Win / Lost. All rights reserved.</p>
-    </footer>
+  <footer class="footer">
+    <p>&copy; 2023 Game: Win / Lost. All rights reserved.</p>
+  </footer>
 
-    <script src="./index-function.js"></script>
-  </body>
+  <script src="./index-function.js"></script>
+</body>
+
 </html>

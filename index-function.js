@@ -1,3 +1,25 @@
+// Calculate and update the dynamic age
+function updateDynamicAge() {
+  const birthDate = new Date('1998-06-06'); // Replace with user's birthdate
+  const now = new Date();
+
+  const ageInSeconds = Math.floor((now - birthDate) / 1000);
+  const years = Math.floor(ageInSeconds / (365 * 24 * 60 * 60));
+  const months = Math.floor((ageInSeconds % (365 * 24 * 60 * 60)) / (30 * 24 * 60 * 60));
+  const days = Math.floor((ageInSeconds % (30 * 24 * 60 * 60)) / (24 * 60 * 60));
+  const hours = Math.floor((ageInSeconds % (24 * 60 * 60)) / (60 * 60));
+  const minutes = Math.floor((ageInSeconds % (60 * 60)) / 60);
+  const seconds = ageInSeconds % 60;
+
+  const ageText = `${years} years ${months} months ${days} days ${hours} hours ${minutes} minutes ${seconds} seconds`;
+  document.getElementById('dynamic-age').textContent = ageText;
+}
+
+// Call the function initially and update every second
+updateDynamicAge();
+setInterval(updateDynamicAge, 1000);
+
+
 const contributionMonths = document.getElementById("contributionMonths");
 
 // Get contribution data from localStorage
