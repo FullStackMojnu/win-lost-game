@@ -2,60 +2,62 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./add-style.css">
-    <title>আপনার দিন যোগ করুন</title> 
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./add-style.css" />
+  <title>আপনার দিন যোগ করুন</title>
 </head>
 
 <body>
-    <div class="container">
-      <h1 class="title">আপনার দিনটি যোগ করুন</h1> <!-- Use <h1> for the title --> 
-        <div class="form">
-            <div class="date-picker-container">
-              <input type="date" id="date" class="date-input" name="date">
-            </div>
-            <div class="checkboxes">
-                <label><input type="checkbox" name="namaz">৫ ওয়াক্ত নামাজ পড়েছেন?</label>
-                <label><input type="checkbox" name="quran">সকালে কুরআন পড়েছেন?</label> 
-                <label><input type="checkbox" name="noSmoking">সিগারেট খান নি?</label>
-                <label><input type="checkbox" name="study">ঘন্টা পড়াশোনা করেছেন?</label> 
-                <label><input type="checkbox" name="contactFamily">পরিবারের সাথে কথা বলেছেন?</label>
-                <label><input type="checkbox" name="jobApply">চাকরির প্রস্তুতি/আবেদন করেছেন?</label>
-            </div>
-            <br/>
-            <div>
-              <label for="giftChoice">নিজেকে উপহার দিন:</label> 
-              <div class="custom-dropdown">
-                <select id="giftChoice" name="giftChoice">
-                  <option value="No Gift">No Gift</option>
-                  <option value="Singra">Singra</option>
-                  <option value="Moghlai">Moghlai</option>
-                  <option value="Puri">Puri</option>
-                  <option value="Porwata">Porwata</option>
-                </select>
-                <div class="dropdown-arrow">&#9660;</div>
-              </div>
-            </div>
-            <br/>
-            <div class="editor-container">
-              <label for="importantWork" class="editor-label">Important Work:</label>
-              <div class="editor">
-                <div class="editor-toolbar">
-                  <!-- Add toolbar buttons here if desired -->
-                </div>
-                <textarea id="importantWork" name="importantWork" class="editor-textarea" rows="2"></textarea>
-              </div>
-            </div>
-            
+  <div class="container">
+    <h1 class="title">আপনার দিনটি যোগ করুন</h1>
+    <!-- Use <h1> for the title -->
+    <div class="form">
+      <div class="date-picker-container">
+        <input type="date" id="date" class="date-input" name="date" />
+      </div>
+      <div class="checkboxes">
+        <label><input type="checkbox" name="namaz" />৫ ওয়াক্ত নামাজ</label>
+        <label><input type="checkbox" name="quran" />সকালে কুরআন</label>
+        <label><input type="checkbox" name="noSmoking" />সিগারেট খান নি?</label>
+        <label><input type="checkbox" name="contactFamily" />পরিবারের সাথে কথা</label>
+        <label><input type="checkbox" name="jobApply" />কমপক্ষে ১ টি MERN চাকরিতে আবেদন</label>
+        <label><input type="checkbox" name="exercise" />ব্যায়াম করেছেন?</label>
+        <label><input type="checkbox" name="mernJob" />৬ ঘন্টা-MERN চাকরি</label>
+        <label><input type="checkbox" name="reactBook" />React.js এক পৃষ্ঠা বই লেখা</label>
+        <label><input type="checkbox" name="certificateStudy" />৬ ঘন্টা সার্টিফিকেটের জন্য পড়া</label>
+      </div>
 
-
-            <button id="createObject">একটি নতুন দিন যোগ করুন</button> 
+      <br />
+      <div>
+        <label for="giftChoice">নিজেকে উপহার দিন:</label>
+        <div class="custom-dropdown">
+          <select id="giftChoice" name="giftChoice">
+            <option value="No Gift">No Gift</option>
+            <option value="Singra">Singra</option>
+            <option value="Moghlai">Moghlai</option>
+            <option value="Puri">Puri</option>
+            <option value="Porwata">Porwata</option>
+          </select>
+          <div class="dropdown-arrow">&#9660;</div>
         </div>
+      </div>
+      <br />
+      <div class="editor-container">
+        <label for="importantWork" class="editor-label">Important Work:</label>
+        <div class="editor">
+          <div class="editor-toolbar">
+            <!-- Add toolbar buttons here if desired -->
+          </div>
+          <textarea id="importantWork" name="importantWork" class="editor-textarea" rows="2"></textarea>
+        </div>
+      </div>
+
+      <button id="createObject">একটি নতুন দিন যোগ করুন</button>
     </div>
+  </div>
 
-    <script src="./add-function.js"></script>
-
+  <script src="./add-function.js"></script>
 </body>
 
 </html>
