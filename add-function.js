@@ -11,12 +11,15 @@ document.getElementById("createObject").addEventListener("click", function (even
   const mernJob = document.querySelector('input[name="mernJob"]').checked ? 5 : 0;
   const reactBook = document.querySelector('input[name="reactBook"]').checked ? 5 : 0;
   const certificateStudy = document.querySelector('input[name="certificateStudy"]').checked ? 5 : 0;
+  const water = document.querySelector('input[name="water"]').checked ? 5 : 0;
+  const word = document.querySelector('input[name="word"]').checked ? 5 : 0;
+  const sleep = document.querySelector('input[name="certificateStudy"]').checked ? 5 : 0;
   const importantWork = document.getElementById("importantWork").value;
   const giftChoice = document.getElementById("giftChoice").value;
 
-  const totalScore = namaz + quran + noSmoking + contactFamily + jobApply + exercise + mernJob + reactBook + certificateStudy;
-  const score = ((totalScore / 45) * 100).toFixed(2);
-  const result = score > 99 ? "win" : "lose";
+  const totalScore = namaz + quran + noSmoking + contactFamily + jobApply + exercise + mernJob + reactBook + certificateStudy + water + word + sleep;
+  const score = ((totalScore / 60) * 100).toFixed(2);
+  const result = score >= 80 && namaz == 5 && mernJob == 5 && reactBook == 5 && certificateStudy == 5 && jobApply == 5 ? "win" : "lose";
 
   const newDay = {
     date: date,
@@ -29,6 +32,9 @@ document.getElementById("createObject").addEventListener("click", function (even
     mernJob: mernJob,
     reactBook: reactBook,
     certificateStudy: certificateStudy,
+    water: water,
+    word: word,
+    sleep: sleep,
     importantWork: importantWork,
     giftChoice: giftChoice,
     score: score + "%",

@@ -1,4 +1,4 @@
-// Calculate and update the dynamic age
+// Calculate and display the dynamic age in UI
 function updateDynamicAge() {
   const birthDate = new Date('1998-06-06'); // Replace with user's birthdate
   const now = new Date();
