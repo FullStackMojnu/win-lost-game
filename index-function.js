@@ -19,6 +19,31 @@ function updateDynamicAge() {
 updateDynamicAge();
 setInterval(updateDynamicAge, 1000);
 
+// clock icon //
+
+function updateClock() {
+  const now = new Date();
+  const hours = now.getHours();
+  const minutes = now.getMinutes();
+  const seconds = now.getSeconds();
+
+  const hourRotation = (hours % 12) * 30 + minutes * 0.5;
+  const minuteRotation = minutes * 6;
+  const secondRotation = seconds * 6;
+
+  const hourHand = document.querySelector('.hour-hand');
+  const minuteHand = document.querySelector('.minute-hand');
+  const secondHand = document.querySelector('.second-hand');
+
+  hourHand.style.transform = `translate(-50%, -100%) rotate(${hourRotation}deg)`;
+  minuteHand.style.transform = `translate(-50%, -100%) rotate(${minuteRotation}deg)`;
+  secondHand.style.transform = `translate(-50%, -100%) rotate(${secondRotation}deg)`;
+}
+
+updateClock();
+setInterval(updateClock, 1000);
+
+
 
 const contributionMonths = document.getElementById("contributionMonths");
 

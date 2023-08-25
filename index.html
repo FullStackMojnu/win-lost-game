@@ -6,6 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Game: Win / Lost</title>
   <link rel="stylesheet" href="./index-style.css" />
+
+  <!-- ... (other meta tags and stylesheets) ... -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+
 </head>
 
 <body>
@@ -28,11 +33,22 @@
       <span class="ticker-text">
         No sacrifice, No gain.
       </span>
-      <span id="dynamic-age" class="ticker-text">
-        <!-- Age will be displayed here -->
-      </span>
     </div>
   </div>
+  <div class="dynamic-age-container">
+    <div class="clock-icon">
+      <div class="clock-circle">
+        <div class="hour-hand"></div>
+        <div class="minute-hand"></div>
+        <div class="second-hand"></div>
+      </div>
+    </div>
+    <div id="dynamic-age">
+      <!-- Age will be displayed here -->
+    </div>
+  </div>
+
+
   <div class="message-container" id="messageContainer">
     <div class="message-box">
       <p>
