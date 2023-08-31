@@ -1,6 +1,14 @@
-document.getElementById("createObject").addEventListener("click", function (event) {
-  event.preventDefault(); // Prevent form submission (if the button is inside a form)
+// After user logs in and receives a JWT token
+const token = localStorage.getItem('token');
+const decodedToken = jwt_decode(token);
+const userId = decodedToken.userId; // Assuming the username is stored in the JWT payload
+// Assuming the username is stored in the JWT payload
+console.log(typeof userId, userId)
 
+document.getElementById("createObject").addEventListener("click", async function (event) {
+  event.preventDefault();
+
+  // Extract form data
   const date = document.getElementById("date").value;
   const namaz = document.querySelector('input[name="namaz"]').checked ? 5 : 0;
   const quran = document.querySelector('input[name="quran"]').checked ? 5 : 0;
@@ -21,7 +29,8 @@ document.getElementById("createObject").addEventListener("click", function (even
   const score = ((totalScore / 60) * 100).toFixed(2);
   const result = score >= 80 && namaz == 5 && mernJob == 5 && reactBook == 5 && certificateStudy == 5 && jobApply == 5 ? "win" : "lose";
 
-  const newDay = {
+  const dayData = {
+    userId: userId,
     date: date,
     namaz: namaz,
     quran: quran,
@@ -39,15 +48,28 @@ document.getElementById("createObject").addEventListener("click", function (even
     giftChoice: giftChoice,
     score: score + "%",
     result: result
+    // ... Add other fields ...
   };
 
-  // Get existing data or create an empty array
-  let savedData = JSON.parse(localStorage.getItem("adminData")) || [];
-  savedData.push(newDay);
+  try {
+    const response = await fetch('http://localhost:3000/api/day', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(dayData)
+    });
 
-  // Save the updated data to localStorage
-  localStorage.setItem("adminData", JSON.stringify(savedData));
-  window.location.href = "./index.html";
-
-  console.log(newDay); // You can replace this with your desired action, like adding to an array or sending to a server.
+    if (response.ok) {
+      console.log('Day data sent successfully');
+      // Optionally, redirect the user or show a success message
+      window.location.href = "./index.html"; // Redirect after successful submission
+    } else {
+      console.error('Error sending day data');
+      // Handle error scenario
+    }
+  } catch (error) {
+    console.error('Error sending day data:', error);
+    // Handle error scenario
+  }
 });

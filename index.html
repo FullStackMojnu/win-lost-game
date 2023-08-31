@@ -4,34 +4,35 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Game: Win / Lost</title>
+  <title>Win / Lost</title>
   <link rel="stylesheet" href="./index-style.css" />
-
-  <!-- ... (other meta tags and stylesheets) ... -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
-
 </head>
 
 <body>
   <header class="header">
     <nav class="navbar">
-      <a href="#" class="nav-logo">Game: Win / Lost</a>
+      <a href="#" class="nav-logo">Win / Lost</a>
       <div class="nav-links">
-        <a href="./add-your-day.html" class="nav-link">Add Your Day</a>
-        <a href="./table-view.html" class="nav-link">View Table</a>
-        <a href="./damikotha.html" class="nav-link">Damī Kathā</a>
+        <a href="./manage-day.html" class="nav-link">Manage Day</a>
+        <a href="./add-your-day.html" class="nav-link" style="text-decoration: underline;">Add Your New Day</a>
+        <a href="./table-view.html" class="nav-link">Table Data</a>
+        <a href="#" class="nav-link logout">Logout</a>
       </div>
     </nav>
-    <h1 class="game-title">Track Your Wins and Losses</h1>
   </header>
   <div class="news-ticker">
     <div class="ticker-content">
+      <span class="ticker-text">
+        প্রিয়াংকা, মোরশেদ, শফিকুল, রাসেল, শিয়াল পন্ডিত, কোলা ব্যাঙ, বাংটু দা
+      </span>
       <span class="ticker-text">
         You always forget your promise and live purpose.
       </span>
       <span class="ticker-text">
         No sacrifice, No gain.
+      </span>
+      <span class="ticker-text">
+        "আমরাও মানুষ হব ফাউন্ডেশন"- বেরুবাড়ীর ১ রোল শিক্ষার্থীদের প্রতিমাসে ২০০/৩০০ টাকা করে মাসিক বৃত্তি দেয়া।
       </span>
     </div>
   </div>
@@ -73,7 +74,7 @@
         <span id="winningPercentage" class="stat-value">0%</span>
       </div>
     </section>
-
+    <h1 style="margin-bottom: 20px; width: 100%; text-align: center;color: #5C6065">Track Your Wins and Loses</h1>
     <section class="contribution-months" id="contributionMonths">
       <!-- Populated by JavaScript -->
     </section>
@@ -82,7 +83,7 @@
   <footer class="footer">
     <p>&copy; 2023 Game: Win / Lost. All rights reserved.</p>
   </footer>
-
+  <script src="./jwt-decode/build/jwt-decode.js"></script>
   <script src="./index-function.js"></script>
 </body>
 

@@ -1,3 +1,23 @@
+// Check if the user has a valid token
+const token = localStorage.getItem('token');
+if (!token) {
+  // Redirect to login or sign-up page
+  window.location.href = './sign-up.html';
+}
+
+const decodedToken = jwt_decode(token);
+const userId = decodedToken.userId; // Assuming the username is stored in the JWT payload
+// Assuming the username is stored in the JWT payload
+console.log(typeof userId, userId)
+
+// Logout
+document.querySelector('.logout').addEventListener('click', () => {
+  // Clear the token from local storage or cookies
+  localStorage.removeItem('token'); // or document.cookie = 'jwtToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+  window.location.href = './sign-up.html'; // Redirect to your login page
+});
+
+
 // Calculate and display the dynamic age in UI
 function updateDynamicAge() {
   const birthDate = new Date('1998-06-06'); // Replace with user's birthdate
@@ -47,92 +67,109 @@ setInterval(updateClock, 1000);
 
 const contributionMonths = document.getElementById("contributionMonths");
 
-// Get contribution data from localStorage
-const contributionData = JSON.parse(localStorage.getItem("adminData")) || [];
+// Get contribution data from the server
+const loader = document.createElement("div");
+loader.className = "loader";
+contributionMonths.appendChild(loader);
 
-// Group data by year and month
-const groupedData = {};
-contributionData.forEach(day => {
-  const date = new Date(day.date);
-  const year = date.getFullYear();
-  const month = date.getMonth();
-
-  if (!groupedData[year]) {
-    groupedData[year] = {};
+fetch(`http://localhost:3000/api/days/user-days?userId=${userId}`, {
+  method: 'GET',
+  headers: {
+    'Authorization': token
   }
+})
+  .then(response => response.json())
+  .then(contributionData => {
+    // Group data by year and month
+    if (contributionData) {
+      loader.style.display = "none";
+    }
+    const groupedData = {};
+    contributionData.forEach(day => {
+      const date = new Date(day.date);
+      const year = date.getFullYear();
+      const month = date.getMonth();
 
-  if (!groupedData[year][month]) {
-    groupedData[year][month] = [];
-  }
+      if (!groupedData[year]) {
+        groupedData[year] = {};
+      }
 
-  groupedData[year][month].push(day);
-});
+      if (!groupedData[year][month]) {
+        groupedData[year][month] = [];
+      }
 
-// If no contribution data available, display the user message
+      groupedData[year][month].push(day);
+    });
+    // If no contribution data available, display the user message
 
-const messageContainer = document.getElementById("messageContainer");
-const closeButton = document.getElementById("closeButton");
+    const messageContainer = document.getElementById("messageContainer");
+    const closeButton = document.getElementById("closeButton");
 
-if (contributionData.length === 0) {
-  messageContainer.style.display = "block";
+    if (contributionData.length === 0) {
+      messageContainer.style.display = "block";
 
-  closeButton.addEventListener("click", () => {
-    messageContainer.style.display = "none";
-  });
-} else {
-  // Loop through contribution data and create month containers
-  // ... (rest of your existing code)
-  for (const year in groupedData) {
-    for (const month in groupedData[year]) {
-      const monthContainer = document.createElement("div");
-      monthContainer.className = "month-container";
-
-      const monthName = new Date(year, month, 1).toLocaleString('default', { month: 'long' });
-      const yearName = year;
-      const monthWins = groupedData[year][month].filter(day => day.result === "win").length;
-      const monthTotalDays = new Date(year, month + 1, 0).getDate();
-
-      // Create the month name element and append it first
-      const monthNameElement = document.createElement("div");
-      monthNameElement.className = "month-name";
-      monthNameElement.textContent = `${monthName} ${yearName} (${monthWins}/${monthTotalDays})`;
-      monthContainer.appendChild(monthNameElement);
-
-      // Append individual day cells
-      groupedData[year][month].forEach(day => {
-        const cell = document.createElement("div");
-        cell.className = `day ${day.result}`;
-        const dayNumber = new Date(day.date).getDate();
-        cell.setAttribute("data-date", `${dayNumber}`);
-        cell.setAttribute("data-score", `${day.score}`);
-        cell.textContent = day.result === "win" ? "🏆" : "🥚";
-        monthContainer.appendChild(cell);
+      closeButton.addEventListener("click", () => {
+        messageContainer.style.display = "none";
       });
+    } else {
+      // Loop through contribution data and create month containers
+      // ... (rest of your existing code)
+      for (const year in groupedData) {
+        for (const month in groupedData[year]) {
+          const monthContainer = document.createElement("div");
+          monthContainer.className = "month-container";
 
-      contributionMonths.appendChild(monthContainer);
-    }
-  }
-  // show total winning day and totla lost day
-  // Calculate total winning and lost days
-  let totalWinningDays = 0;
-  let totalLostDays = 0;
+          const monthName = new Date(year, month, 1).toLocaleString('default', { month: 'long' });
+          const yearName = year;
+          const monthWins = groupedData[year][month].filter(day => day.result === "win").length;
+          const monthTotalDays = new Date(year, month + 1, 0).getDate();
 
-  contributionData.forEach(day => {
-    if (day.result === "win") {
-      totalWinningDays++;
-    } else if (day.result === "lose") {
-      totalLostDays++;
+          // Create the month name element and append it first
+          const monthNameElement = document.createElement("div");
+          monthNameElement.className = "month-name";
+          monthNameElement.textContent = `${monthName} ${yearName} (${monthWins}/${monthTotalDays})`;
+          monthContainer.appendChild(monthNameElement);
+
+          // Append individual day cells
+          groupedData[year][month].forEach(day => {
+            const cell = document.createElement("div");
+            cell.className = `day ${day.result}`;
+            const dayNumber = new Date(day.date).getDate();
+            cell.setAttribute("data-date", `${dayNumber}`);
+            cell.setAttribute("data-score", `${day.score}`);
+            cell.textContent = day.result === "win" ? "🏆" : "🥚";
+            monthContainer.appendChild(cell);
+          });
+
+          contributionMonths.appendChild(monthContainer);
+        }
+      }
+      // show total winning day and totla lost day
+      // Calculate total winning and lost days
+      let totalWinningDays = 0;
+      let totalLostDays = 0;
+
+      contributionData.forEach(day => {
+        if (day.result === "win") {
+          totalWinningDays++;
+        } else if (day.result === "lose") {
+          totalLostDays++;
+        }
+      });
+      const totalDays = totalWinningDays + totalLostDays;
+      const winningPercentage = (totalWinningDays / totalDays) * 100;
+      // Get the last day of the month
+
+      // Update the HTML elements with the calculated values
+      document.getElementById("totalWinningDays").textContent = totalWinningDays;
+      document.getElementById("totalLostDays").textContent = totalLostDays;
+      document.getElementById("winningPercentage").textContent = winningPercentage.toFixed(2) + "%";
     }
+    // ... (rest of your existing code for displaying data on UI)
+  })
+  .catch(error => {
+    console.error("Error fetching data:", error);
   });
-  const totalDays = totalWinningDays + totalLostDays;
-  const winningPercentage = (totalWinningDays / totalDays) * 100;
-  // Get the last day of the month
 
-  // Update the HTML elements with the calculated values
-  document.getElementById("totalWinningDays").textContent = totalWinningDays;
-  document.getElementById("totalLostDays").textContent = totalLostDays;
-  document.getElementById("winningPercentage").textContent = winningPercentage.toFixed(2) + "%";
-}
 
-// Clock
 
